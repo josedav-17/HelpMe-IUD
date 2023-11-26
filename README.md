@@ -3,8 +3,11 @@
 
 # Integrantes del equipo
   Julian Valencia
+  
   Mateo Arango Rodriguez
+  
   John Alejandro Vallejo Ramirez
+  
   José David Cardona
 
 # Configuración del Proyecto
