@@ -2,13 +2,13 @@
   ## Proyecto diplomado HelpMe-IUD - Back-End
 
 # Integrantes del equipo
-Julian Valencia
+Julian Valencia.
   
-Mateo Arango Rodriguez
+Mateo Arango Rodriguez.
   
-John Alejandro Vallejo Ramirez
+John Alejandro Vallejo Ramirez.
   
-José David Cardona
+José David Cardona.
 
 # Configuración del Proyecto
 
