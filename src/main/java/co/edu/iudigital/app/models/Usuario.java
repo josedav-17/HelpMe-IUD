@@ -6,8 +6,10 @@ import lombok.Setter;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
 
 @Getter
 @Setter
@@ -46,4 +48,18 @@ public class Usuario implements Serializable {
 
     @Column(name = "red_social")
     Boolean redSocial;
+
+    @ManyToMany
+    @JoinTable(
+            name = "roles_usuarios",
+            joinColumns = {
+                    @JoinColumn(name = "usuarios_id")
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(name = "roles_id")
+            }
+    )
+    @NotNull
+    List<Role> roles;
+
 }

@@ -20,35 +20,35 @@ public class Caso implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    @Column(name = "fecha_hora", nullable = false)
+    @Column(name = "fecha_hora")
     LocalDateTime fechaHora;
 
-    @Column(nullable = false)
+    @Column(name = "latitud")
     Float latitud;
 
-    @Column(nullable = false)
+    @Column(name = "longitud")
     Float longitud;
 
-    @Column(nullable = false)
+    @Column(name = "altitud")
     Float altitud;
 
-    @Column(name = "is_visible", nullable = false)
+    @Column(name = "is_visible")
     Boolean isVisible;
 
-    @Column(nullable = false, length = 255)
+    @Column(name = "detalle")
     String detalle;
 
-    @Column(name = "url_map", length = 255)
+    @Column(name = "url_map")
     String urlMap;
 
-    @Column(name = "mi_url", length = 255)
-    String miUrl;
+    @Column(name = "rmi_url")
+    String rmiUrl;
 
     @ManyToOne
-    @JoinColumn(name = "delitos_id", nullable = false)
+    @JoinColumn(name = "delitos_id")
     Delito delito;
 
     @ManyToOne
-    @JoinColumn(name = "usuarios_id", nullable = false)
+    @JoinColumn(name = "usuarios_id")
     Usuario usuario;
 }

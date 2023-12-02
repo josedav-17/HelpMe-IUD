@@ -1,11 +1,15 @@
 package co.edu.iudigital.app.controllers;
 
-import co.edu.iudigital.app.models.Usuario;
+import co.edu.iudigital.app.dtos.UsuarioDTO;
 import co.edu.iudigital.app.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import javax.validation.Valid;
+
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/usuarios")
@@ -15,23 +19,26 @@ public class UsuarioController {
     private UsuarioService usuarioService;
 
     @GetMapping
-    public List<Usuario> getAllUsuarios() {
+    public List<UsuarioDTO> getAllUsuarios() {
         return usuarioService.getAllUsuarios();
     }
 
     @GetMapping("/{id}")
-    public Usuario getUsuarioById(@PathVariable Long id) {
+    public UsuarioDTO getUsuarioById(@PathVariable Long id) {
         return usuarioService.getUsuarioById(id);
     }
 
     @PostMapping
-    public Usuario createUsuario(@RequestBody Usuario usuario) {
-        return usuarioService.createUsuario(usuario);
+    public ResponseEntity<UsuarioDTO> createUsuario(@RequestBody @Valid UsuarioDTO usuarioDTO) {
+        if (usuarioDTO.getRoles() == null || usuarioDTO.getRoles().isEmpty()) {
+            throw new IllegalArgumentException("El campo 'roles' no puede ser nulo o vacío.");
+        }
+        return ResponseEntity.ok(usuarioService.createUsuario(usuarioDTO));
     }
 
     @PutMapping("/{id}")
-    public Usuario updateUsuario(@PathVariable Long id, @RequestBody Usuario usuario) {
-        return usuarioService.updateUsuario(id, usuario);
+    public UsuarioDTO updateUsuario(@PathVariable Long id, @RequestBody UsuarioDTO usuarioDTO) {
+        return usuarioService.updateUsuario(id, usuarioDTO);
     }
 
     @DeleteMapping("/{id}")

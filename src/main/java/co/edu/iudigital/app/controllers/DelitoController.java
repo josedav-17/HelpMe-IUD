@@ -1,11 +1,12 @@
 package co.edu.iudigital.app.controllers;
 
-import co.edu.iudigital.app.models.Delito;
+import co.edu.iudigital.app.dtos.DelitoDTO;
 import co.edu.iudigital.app.services.DelitoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/delitos")
@@ -15,23 +16,23 @@ public class DelitoController {
     private DelitoService delitoService;
 
     @GetMapping
-    public List<Delito> getAllDelitos() {
+    public List<DelitoDTO> getAllDelitos() {
         return delitoService.getAllDelitos();
     }
 
     @GetMapping("/{id}")
-    public Delito getDelitoById(@PathVariable Long id) {
+    public DelitoDTO getDelitoById(@PathVariable Long id) {
         return delitoService.getDelitoById(id);
     }
 
     @PostMapping
-    public Delito createDelito(@RequestBody Delito delito) {
-        return delitoService.createDelito(delito);
+    public DelitoDTO createDelito(@RequestBody DelitoDTO delitoDTO) {
+        return delitoService.createDelito(delitoDTO);
     }
 
     @PutMapping("/{id}")
-    public Delito updateDelito(@PathVariable Long id, @RequestBody Delito delito) {
-        return delitoService.updateDelito(id, delito);
+    public DelitoDTO updateDelito(@PathVariable Long id, @RequestBody DelitoDTO delitoDTO) {
+        return delitoService.updateDelito(id, delitoDTO);
     }
 
     @DeleteMapping("/{id}")
