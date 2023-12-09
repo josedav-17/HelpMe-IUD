@@ -1,7 +1,7 @@
-package co.edu.iudigital.app.models.controllers;
+package co.edu.iudigital.app.controllers;
 
 import co.edu.iudigital.app.dtos.RoleDTO;
-import co.edu.iudigital.app.services.RoleService;
+import co.edu.iudigital.app.services.ifaces.IRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,7 +13,7 @@ import java.util.List;
 public class RoleController {
 
     @Autowired
-    private RoleService roleService;
+    private IRoleService roleService;
 
     @GetMapping
     public List<RoleDTO> getAllRoles() {

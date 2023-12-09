@@ -1,14 +1,13 @@
 package co.edu.iudigital.app.controllers;
 
 import co.edu.iudigital.app.dtos.CasoDTO;
-import co.edu.iudigital.app.services.CasoService;
+import co.edu.iudigital.app.services.ifaces.ICasoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
@@ -16,7 +15,7 @@ import java.util.stream.Collectors;
 public class CasoController {
 
     @Autowired
-    private CasoService casoService;
+    private ICasoService casoService;
 
     @GetMapping
     public List<CasoDTO> getAllCasos() {

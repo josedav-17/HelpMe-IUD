@@ -1,20 +1,19 @@
 package co.edu.iudigital.app.dtos;
 
+import lombok.*;
+import lombok.experimental.FieldDefaults;
+
+@Getter
+@Setter
+@FieldDefaults(level = AccessLevel.PRIVATE)
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class RoleDTO {
 
     private Long id;
     private String nombre;
     private String descripcion;
-
-    public RoleDTO() {
-        // Constructor vacío necesario para la deserialización
-    }
-
-    public RoleDTO(Long id, String nombre, String descripcion) {
-        this.id = id;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-    }
 
     public Long getId() {
         return id;

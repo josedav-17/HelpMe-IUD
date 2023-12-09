@@ -4,31 +4,20 @@ import lombok.Getter;
 
 import java.time.LocalDateTime;
 
+@Getter
 public class CasoDTO {
 
-    @Getter
     private Long id;
-    @Getter
     private LocalDateTime fechaHora;
-    @Getter
     private Float latitud;
-    @Getter
     private Float longitud;
-    @Getter
     private Float altitud;
     private Boolean isVisible;
-    @Getter
     private String detalle;
-    @Getter
     private String urlMap;
-    @Getter
     private String rmiUrl;
-    @Getter
     private Long delitoId;
-    @Getter
     private Long usuarioId;
-
-    // Constructores, getters y setters
 
     public CasoDTO() {
         // Constructor vacío necesario para la deserialización (si es necesario)

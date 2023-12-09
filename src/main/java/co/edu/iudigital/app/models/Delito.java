@@ -1,13 +1,10 @@
 package co.edu.iudigital.app.models;
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
-import javax.persistence.*;// no es buena práctica
+import javax.persistence.*;
 import java.io.Serializable;
-// debe quedar importación por importación
 
 @Getter
 @Setter
@@ -28,4 +25,5 @@ public class Delito implements Serializable {
 
     @Column(name = "descripcion", length = 120)
     String descripcion;
+
 }

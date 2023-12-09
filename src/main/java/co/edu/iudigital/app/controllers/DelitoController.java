@@ -1,7 +1,7 @@
 package co.edu.iudigital.app.controllers;
 
 import co.edu.iudigital.app.dtos.DelitoDTO;
-import co.edu.iudigital.app.services.DelitoService;
+import co.edu.iudigital.app.services.ifaces.IDelitoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,30 +13,30 @@ import java.util.List;
 public class DelitoController {
 
     @Autowired
-    private DelitoService delitoService;
+    private IDelitoService iDelitoService;
 
     @GetMapping
     public List<DelitoDTO> getAllDelitos() {
-        return delitoService.getAllDelitos();
+        return iDelitoService.getAllDelitos();
     }
 
     @GetMapping("/{id}")
     public DelitoDTO getDelitoById(@PathVariable Long id) {
-        return delitoService.getDelitoById(id);
+        return iDelitoService.getDelitoById(id);
     }
 
     @PostMapping
     public DelitoDTO createDelito(@RequestBody DelitoDTO delitoDTO) {
-        return delitoService.createDelito(delitoDTO);
+        return iDelitoService.createDelito(delitoDTO);
     }
 
     @PutMapping("/{id}")
     public DelitoDTO updateDelito(@PathVariable Long id, @RequestBody DelitoDTO delitoDTO) {
-        return delitoService.updateDelito(id, delitoDTO);
+        return iDelitoService.updateDelito(id, delitoDTO);
     }
 
     @DeleteMapping("/{id}")
     public void deleteDelito(@PathVariable Long id) {
-        delitoService.deleteDelito(id);
+        iDelitoService.deleteDelito(id);
     }
 }
