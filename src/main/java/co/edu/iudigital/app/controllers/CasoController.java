@@ -48,5 +48,7 @@ public class CasoController {
     public ResponseEntity<Void> deleteCaso(@PathVariable Long id) {
         casoService.deleteCaso(id);
         return ResponseEntity.noContent().build();
+
+
     }
 }
